@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -15,6 +16,7 @@ class ItemAdapter(private val context: Context, private val dataset: List<Affirm
 
     class ItemViewHolder(private val view: View) : ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
+        val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -29,5 +31,6 @@ class ItemAdapter(private val context: Context, private val dataset: List<Affirm
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 }
